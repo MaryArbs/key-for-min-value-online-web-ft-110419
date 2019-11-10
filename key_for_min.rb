@@ -3,19 +3,16 @@
 
 
   def key_for_min_value(name_hash)
-    def key_for_min_value(name_hash)
-    min = nil
-    key = nil
-    name_hash.collect do |name, age|
-      if min == nil || age < min
-        min = age
-        key = name
-      else
-        if min > age
-          min = age
-          key = name
-        end
+    min_value = nil
+    min_key = nil
+    name_hash.each do |k, v|
+      if min_value == nil
+        min_value = v
+        min_key = k
+      elsif min_value > v
+        min_value = v
+        min_key = k
       end
     end
-    key
+    min_key
   end
